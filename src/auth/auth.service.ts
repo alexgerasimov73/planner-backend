@@ -8,9 +8,13 @@ import { JwtService } from '@nestjs/jwt'
 import { UserService } from '../user/user.service'
 import { AuthDto } from './dto/auth.dto'
 import { verify } from 'argon2'
+import { Response } from 'express'
 
 @Injectable()
 export class AuthService {
+	EXPIRES_DAY_REFRESH_TOKEN = 1
+	REFRESH_TOKEN_NAME = 'refreshToken'
+
 	constructor(
 		private jwt: JwtService,
 		private userService: UserService
@@ -62,5 +66,44 @@ export class AuthService {
 			user,
 			...tokens
 		}
+	}
+
+	async getNewTokens(refreshToken: string) {
+		const result = await this.jwt.verifyAsync(refreshToken)
+		if (!result) throw new UnauthorizedException('Invalid refresh token')
+
+		const { password, ...user } = await this.userService.getById(result.id)
+
+		const tokens = this.issueTokens(user.id)
+
+		return {
+			user,
+			...tokens
+		}
+	}
+
+	addRefreshTokenToResponse(res: Response, refreshToken: string) {
+		const expiresIn = new Date()
+		expiresIn.setDate(expiresIn.getDate() + this.EXPIRES_DAY_REFRESH_TOKEN)
+
+		res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
+			httpOnly: true,
+			domain: 'localhost',
+			expires: expiresIn,
+			secure: true,
+			// lax if production.
+			sameSite: true
+		})
+	}
+
+	removeRefreshTokenFromResponse(res: Response) {
+		res.cookie(this.REFRESH_TOKEN_NAME, '', {
+			httpOnly: true,
+			domain: 'localhost',
+			expires: new Date(0),
+			secure: true,
+			// lax if production.
+			sameSite: true
+		})
 	}
 }
