@@ -36,6 +36,14 @@ export class TimeBlockController {
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
+	@Put('update-order')
+	@Auth()
+	async updateOrder(@Body() updateOrderDto: UpdateOrderDto) {
+		return this.timeBlockService.updateOrder(updateOrderDto.ids)
+	}
+
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
 	@Put(':id')
 	@Auth()
 	async update(
@@ -51,13 +59,5 @@ export class TimeBlockController {
 	@Auth()
 	async delete(@CurrentUser('id') userId: string, @Param('id') id: string) {
 		return this.timeBlockService.delete(id, userId)
-	}
-
-	@UsePipes(new ValidationPipe())
-	@HttpCode(200)
-	@Put(':id')
-	@Auth()
-	async updateOrder(@Body() updateOrderDto: UpdateOrderDto) {
-		return this.timeBlockService.updateOrder(updateOrderDto.ids)
 	}
 }
