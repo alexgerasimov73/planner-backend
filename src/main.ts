@@ -10,7 +10,9 @@ async function bootstrap() {
 	app.enableCors({
 		origin: [
 			'http://localhost:3000',
-			'https://planner-frontend-blush.vercel.app'
+			'https://planner-frontend-blush.vercel.app',
+			'https://planner-frontend-alexgerasimov73s-projects.vercel.app',
+			'https://planner-frontend-git-main-alexgerasimov73s-projects.vercel.app'
 		],
 		credentials: true,
 		exposedHeaders: 'set-cookie'

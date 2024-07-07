@@ -31,9 +31,6 @@ export class AuthService {
 			expiresIn: '7d'
 		})
 
-		console.log('accessToken', accessToken)
-		console.log('refreshToken', refreshToken)
-
 		return { accessToken, refreshToken }
 	}
 
@@ -106,7 +103,7 @@ export class AuthService {
 			expires: new Date(0),
 			secure: true,
 			// lax if production.
-			sameSite: true
+			sameSite: 'none'
 		})
 	}
 }
