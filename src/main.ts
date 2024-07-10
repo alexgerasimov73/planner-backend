@@ -11,6 +11,7 @@ async function bootstrap() {
 		origin: [
 			'http://localhost:3000',
 			'https://planner-frontend-blush.vercel.app',
+			'https://planner-backend-p4ab.onrender.com',
 			'https://planner-frontend-alexgerasimov73s-projects.vercel.app',
 			'https://planner-frontend-git-main-alexgerasimov73s-projects.vercel.app'
 		],
