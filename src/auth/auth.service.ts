@@ -88,9 +88,9 @@ export class AuthService {
 
 		res.cookie(this.REFRESH_TOKEN_NAME, refreshToken, {
 			httpOnly: true,
-			domain: 'https://planner-frontend-blush.vercel.app',
 			expires: expiresIn,
 			secure: true,
+			partitioned: true,
 			// lax if production.
 			sameSite: 'none'
 		})
@@ -99,9 +99,9 @@ export class AuthService {
 	removeRefreshTokenFromResponse(res: Response) {
 		res.cookie(this.REFRESH_TOKEN_NAME, '', {
 			httpOnly: true,
-			domain: 'https://planner-frontend-blush.vercel.app',
 			expires: new Date(0),
 			secure: true,
+			partitioned: true,
 			// lax if production.
 			sameSite: 'none'
 		})
