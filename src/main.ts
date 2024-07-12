@@ -11,8 +11,7 @@ async function bootstrap() {
 		origin: [
 			'http://localhost:3000',
 			'https://planner-frontend-0xte.onrender.com',
-			'https://planner-frontend-blush.vercel.app',
-			'https://planner-backend-p4ab.onrender.com'
+			'https://planner-frontend-blush.vercel.app'
 		],
 		credentials: true,
 		exposedHeaders: 'set-cookie'
