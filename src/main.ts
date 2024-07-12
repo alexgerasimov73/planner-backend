@@ -10,6 +10,7 @@ async function bootstrap() {
 	app.enableCors({
 		origin: [
 			'http://localhost:3000',
+			'https://planner-frontend-uw4b.onrender.com',
 			'https://planner-frontend-blush.vercel.app',
 			'https://planner-backend-p4ab.onrender.com',
 			'https://planner-frontend-alexgerasimov73s-projects.vercel.app',
