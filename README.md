@@ -2,37 +2,50 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Planner App Backend
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This is the backend of the Planner App, a task management application with features such as user registration, authorization, and task management.
+The backend is built with [Nest.js](https://nestjs.com/) framework TypeScript starter repository, [Prisma](https://www.prisma.io/), and [PostgreSQL](https://www.postgresql.org/).
 
-## Description
+## Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- User registration and authorization.
+- Task management with features to create, edit, delete, and mark tasks as complete.
+- Task fields include date, priority, name, and completion status.
+- A Pomodoro timer with customizable intervals for work and breaks.
+- Time block scheduling to organize tasks throughout the day.
+
+## Future Plans
+
+- **Diary Feature**: Users will be able to write daily entries, set a mood for the day, and reflect on their experiences.
+- **Enhanced Timer**: The timer will be moved to the header for constant visibility.
+- **Test covering**: The application will be covered with tests.
+
+## Demo
+
+You can open demo on [Render](https://planner-frontend-0xte.onrender.com/auth).
+ATTENTION! For the demo hosting, I'm using the free plan. The first request on the server might take 1-2 minutes because it launches the server and needs some time to be ready. The following requests should be quicker.
+
+Also, I ask you to note that this demo is the static version of the Next.js app because the free plan of the Render service doesn't allow the installation of the non-static version of the Next.js app.
+I used the Render service because it needs to have the same domain for frontend and backend repos, and the free plan of the Render service provides it.
+So, on this demo, it doesn't work middleware, redirects and some other features of the Next.js app (e.g., the redirect to the auth page doesn't happen when tokens are expired).
+
+## API Documentation
+
+The backend API is hosted on Render and can be accessed at:
+[Planner App API](https://planner-backend-p4ab.onrender.com/api)
 
 ## Installation
+
+To get started with the backend, clone the repository and install the dependencies:
 
 ```bash
 $ yarn install
 ```
 
 ## Running the app
+
+You can run the application in different modes
 
 ```bash
 # development
@@ -57,3 +70,11 @@ $ yarn run test:e2e
 # test coverage
 $ yarn run test:cov
 ```
+
+## Deployment
+
+The backend is hosted on [Render](https://render.com/). The PostgreSQL database is hosted on [Railway](https://railway.app/).
+
+## Contributing
+
+If you have suggestions for improvements or want to contribute to the project, feel free to fork the repository and create a pull request.
