@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Get,
 	HttpCode,
 	Post,
 	Req,
@@ -38,6 +39,15 @@ export class AuthController {
 		this.authService.addRefreshTokenToResponse(res, refreshToken)
 
 		return response
+	}
+
+	// This endpoint is exceptionally needed to launch the server
+	// so that the application can be ready for work sooner because,
+	// on the free plan, the server doesn't work permanently.
+	@HttpCode(200)
+	@Get('launch-server')
+	async launchServer(@Res({ passthrough: true }) res: Response) {
+		return 'the server is alive'
 	}
 
 	@HttpCode(200)
